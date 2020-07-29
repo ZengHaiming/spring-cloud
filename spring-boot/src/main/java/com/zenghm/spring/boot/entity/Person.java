@@ -1,4 +1,4 @@
-package com.zenghm.spring.boot;
+package com.zenghm.spring.boot.entity;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

@@ -1,5 +1,6 @@
-package com.zenghm.spring.boot;
+package com.zenghm.spring.boot.controller;
 
+import com.zenghm.spring.boot.entity.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +30,6 @@ public class HelloController {
     @RequestMapping("/getPerson")
     public String getPerson(){
         System.out.println("Person:"+person);
-        return String.format("name:%s,age:%s",person.getName(),person.getAge());
+        return String.format("name:%s,age:%s！",person.getName(),person.getAge());
     }
 }
