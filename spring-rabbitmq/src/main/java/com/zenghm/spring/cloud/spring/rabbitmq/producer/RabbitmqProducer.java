@@ -14,7 +14,7 @@ import java.util.concurrent.TimeoutException;
  * @date 2020/8/24
  * @description xxx
  */
-public class RabbitmqProducter {
+public class RabbitmqProducer {
     public static void main(String[] args) throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory(); // 连接工厂
         factory.setHost("10.60.49.182");
