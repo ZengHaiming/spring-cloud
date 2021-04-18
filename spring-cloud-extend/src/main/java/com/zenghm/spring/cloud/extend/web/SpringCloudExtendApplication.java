@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @description xxx
  */
 @SpringBootApplication
+//@Import(ApplicationConfig.class)
 public class SpringCloudExtendApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringCloudExtendApplication.class,args);

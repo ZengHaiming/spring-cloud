@@ -14,20 +14,20 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class SpringBeanUtil implements ApplicationContextAware {
-    Logger logger = LoggerFactory.getLogger(SpringBeanUtil.class);
-    ApplicationContext applicationContext;
+    private static Logger logger = LoggerFactory.getLogger(SpringBeanUtil.class);
+    private static ApplicationContext applicationContext;
 
     @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        this.applicationContext = applicationContext;
+    public void setApplicationContext(ApplicationContext context) throws BeansException {
+        applicationContext = context;
         logger.info("注入Spring上下文");
     }
 
-    public <T> T getBean(String name) {
-        return getBean(name, this.applicationContext);
+    public static <T> T getBean(String name) {
+        return getBean(name, applicationContext);
     }
 
-    private <T> T getBean(String name, ApplicationContext context) {
+    private static <T> T getBean(String name, ApplicationContext context) {
         return context.getBean(name) == null ? (context.getParent() == null ? null : getBean(name, context.getParent())) : (T) context.getBean(name);
     }
 }

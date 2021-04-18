@@ -2,9 +2,9 @@ package com.zenghm.spring.cloud.extend.business;
 
 /**
  * @author Airlen
- * @date 2021/4/11
+ * @date 2021/4/18
  * @description xxx
  */
-public interface DemoService {
+public interface InjectionDemoService {
     void doBusiness();
 }
