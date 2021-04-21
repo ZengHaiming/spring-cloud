@@ -27,7 +27,7 @@ public class CustomBeanDefinitionRegistryPostProcessor implements BeanDefinition
      */
     @Override
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException {
-        logger.debug("bean 定义", (Object[]) registry.getBeanDefinitionNames());
+        logger.info("bean 定义{}", (Object[]) registry.getBeanDefinitionNames());
     }
 
     /**

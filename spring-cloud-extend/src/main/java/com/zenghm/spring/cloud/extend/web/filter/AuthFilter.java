@@ -24,7 +24,8 @@ public class AuthFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
                          FilterChain filterChain) throws IOException, ServletException {
-        logger.debug("执行过滤器:AuthFilter");
+        logger.info("执行过滤器:AuthFilter");
+        filterChain.doFilter(servletRequest,servletResponse);
     }
 
     @Override

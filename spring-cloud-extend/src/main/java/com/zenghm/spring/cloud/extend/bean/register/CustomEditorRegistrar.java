@@ -16,6 +16,6 @@ public class CustomEditorRegistrar implements PropertyEditorRegistrar {
     private Logger logger = LoggerFactory.getLogger(CustomEditorRegistrar.class);
     @Override
     public void registerCustomEditors(PropertyEditorRegistry registry) {
-        logger.debug("属性编辑");
+        logger.info("属性编辑");
     }
 }

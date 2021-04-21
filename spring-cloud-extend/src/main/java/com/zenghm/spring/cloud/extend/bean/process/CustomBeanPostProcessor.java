@@ -18,28 +18,30 @@ public class CustomBeanPostProcessor implements InstantiationAwareBeanPostProces
     private Logger logger = LoggerFactory.getLogger(CustomBeanPostProcessor.class);
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        logger.debug("{0} bean 属性初始化之前,对象{1}",beanName,bean);
-        return null;
+        logger.info("{} bean 属性初始化之前,对象{}",beanName,bean);
+        //返回空会导致启动失败
+        return bean;
     }
 
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        logger.debug("{0} bean 属性初始化之后,对象{1}",beanName,bean);
-        return null;
+        logger.info("{} bean 属性初始化之后,对象{}",beanName,bean);
+        //返回空会导致启动失败
+        return bean;
     }
 
 
     @Override
     public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) throws BeansException {
-        logger.debug("postProcessBeforeInstantiation");
+        logger.info("postProcessBeforeInstantiation");
         return null;
     }
 
 
     @Override
     public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
-        logger.debug("postProcessAfterInstantiation");
+        logger.info("postProcessAfterInstantiation");
         return false;
     }
 
@@ -47,7 +49,7 @@ public class CustomBeanPostProcessor implements InstantiationAwareBeanPostProces
     @Override
     public PropertyValues postProcessPropertyValues(PropertyValues pvs,
                                                     PropertyDescriptor[] pds, Object bean, String beanName) throws BeansException {
-        logger.debug("postProcessPropertyValues");
-        return null;
+        logger.info("postProcessPropertyValues");
+        return pvs;
     }
 }

@@ -3,6 +3,8 @@ package com.zenghm.spring.cloud.extend.web.config;
 import com.zenghm.spring.cloud.extend.web.converter.DateConverter;
 import com.zenghm.spring.cloud.extend.web.filter.AuthFilter;
 import com.zenghm.spring.cloud.extend.web.handler.CustomHandlerMethodArgumentResolver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,12 +21,13 @@ import java.util.List;
  */
 @Configuration
 public class WebConfig extends WebMvcConfigurerAdapter {
+    private static Logger logger = LoggerFactory.getLogger(WebConfig.class);
     /**
      * 添加过滤器 ，并且设置过滤的url 及顺序
      * @return
      */
     @Bean
-    public FilterRegistrationBean reqResFilter() {
+    public FilterRegistrationBean authFilter() {
         FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
         AuthFilter authFilter = new AuthFilter();
         filterRegistrationBean.setFilter(authFilter);
@@ -48,6 +51,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
         super.addArgumentResolvers(argumentResolvers);
         // 添加自定义参数处理器
+        logger.info("添加自定义参数解析器");
         argumentResolvers.add(new CustomHandlerMethodArgumentResolver());
     }
 }

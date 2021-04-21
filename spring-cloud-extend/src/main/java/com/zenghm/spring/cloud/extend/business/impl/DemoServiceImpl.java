@@ -2,6 +2,7 @@ package com.zenghm.spring.cloud.extend.business.impl;
 
 import com.zenghm.spring.cloud.extend.business.DemoService;
 import com.zenghm.spring.cloud.extend.business.InjectionDemoService;
+import com.zenghm.spring.cloud.extend.dto.RequestDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.BeanNameAware;
@@ -26,34 +27,34 @@ public class DemoServiceImpl implements DemoService, BeanNameAware , Initializin
 
     @PostConstruct
     public void javaInit(){
-        logger.debug("执行Java注解PostConstruct方法");
+        logger.info("执行Java注解PostConstruct方法");
     }
 
     @Override
     public void setBeanName(String name) {
-        logger.debug("类DemoServiceImpl当前bean名称：{0}",name);
+        logger.info("类DemoServiceImpl当前bean名称：{}",name);
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        logger.debug("执行spring bean 初始化方法");
+        logger.info("执行spring bean 初始化方法");
     }
 
     @Override
-    public void doBusiness() {
-        injectionDemoService.doBusiness();
-        logger.debug("执行业务");
+    public RequestDto doBusiness() {
+        logger.info("执行业务");
+        return injectionDemoService.doBusiness();
     }
 
 
     @Override
     public void destroy() throws Exception {
-        logger.debug("执行销毁方法");
+        logger.info("执行销毁方法");
     }
 
     @PreDestroy
     public void javaDestroy(){
-        logger.debug("执行java销毁方法");
+        logger.info("执行java销毁方法");
     }
 
 

@@ -21,6 +21,6 @@ public class CostomApplicationListener implements ApplicationListener {
      */
     @Override
     public void onApplicationEvent(ApplicationEvent event) {
-        logger.debug(event.getClass().getName());
+        logger.info(event.getClass().getName());
     }
 }

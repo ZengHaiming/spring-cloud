@@ -1,6 +1,7 @@
 package com.zenghm.spring.cloud.extend.web.config;
 
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -9,6 +10,12 @@ import org.springframework.context.annotation.Configuration;
  * @description xxx
  */
 @Configuration
-@ComponentScan(basePackages = {"com.zenghm.spring.cloud.extend"})
+@ComponentScans({
+        @ComponentScan("com.zenghm.spring.cloud.extend.bean"),
+        @ComponentScan("com.zenghm.spring.cloud.extend.business"),
+        @ComponentScan("com.zenghm.spring.cloud.extend.listener"),
+        @ComponentScan("com.zenghm.spring.cloud.extend.runner"),
+        @ComponentScan("com.zenghm.spring.cloud.extend.tool")
+})
 public class ApplicationConfig {
 }

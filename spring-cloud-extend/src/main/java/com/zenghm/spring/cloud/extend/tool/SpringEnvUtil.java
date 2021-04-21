@@ -23,6 +23,7 @@ public class SpringEnvUtil implements EnvironmentAware {
     @Override
     public void setEnvironment(Environment env) {
         environment = env;
+        logger.info("注入Environment上下文");
     }
 
     public static Environment getEnvironment() {
