@@ -13,7 +13,7 @@ import java.beans.PropertyDescriptor;
  * @date 2021/4/18
  * @description bean 初始化过程
  */
-@Component
+//@Component
 public class CustomBeanPostProcessor implements InstantiationAwareBeanPostProcessor {
     private Logger logger = LoggerFactory.getLogger(CustomBeanPostProcessor.class);
     @Override
