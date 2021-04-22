@@ -28,6 +28,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
      */
     @Bean
     public FilterRegistrationBean authFilter() {
+        logger.info("添加自定义过滤器");
         FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
         AuthFilter authFilter = new AuthFilter();
         filterRegistrationBean.setFilter(authFilter);
@@ -38,6 +39,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addFormatters(FormatterRegistry registry) {
+        logger.info("添加自定义类型转换器");
         registry.addConverter(new DateConverter());
     }
 

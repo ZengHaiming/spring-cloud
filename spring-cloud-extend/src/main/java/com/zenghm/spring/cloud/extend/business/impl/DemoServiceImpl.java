@@ -25,15 +25,18 @@ public class DemoServiceImpl implements DemoService, BeanNameAware , Initializin
     @Autowired
     private InjectionDemoService injectionDemoService;
 
-    @PostConstruct
-    public void javaInit(){
-        logger.info("执行Java注解PostConstruct方法");
-    }
+    //按照如下方法顺序执行
 
     @Override
     public void setBeanName(String name) {
         logger.info("类DemoServiceImpl当前bean名称：{}",name);
     }
+
+    @PostConstruct
+    public void javaInit(){
+        logger.info("执行Java注解PostConstruct方法");
+    }
+
 
     @Override
     public void afterPropertiesSet() throws Exception {

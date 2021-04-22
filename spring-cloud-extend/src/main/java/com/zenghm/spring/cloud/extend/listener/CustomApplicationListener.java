@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
  * @description spring  event 监听者 ,处理spring event
  */
 @Component
-public class CostomApplicationListener implements ApplicationListener {
-    private Logger logger = LoggerFactory.getLogger(CostomApplicationListener.class);
+public class CustomApplicationListener implements ApplicationListener {
+    private Logger logger = LoggerFactory.getLogger(CustomApplicationListener.class);
     /**
      * Handle an application event.
      *
@@ -21,6 +21,6 @@ public class CostomApplicationListener implements ApplicationListener {
      */
     @Override
     public void onApplicationEvent(ApplicationEvent event) {
-        logger.info(event.getClass().getName());
+        logger.info("执行Spring 监听事件：{}", event.getClass().getName());
     }
 }
