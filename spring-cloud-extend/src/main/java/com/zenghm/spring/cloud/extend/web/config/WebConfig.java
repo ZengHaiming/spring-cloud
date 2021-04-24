@@ -2,7 +2,7 @@ package com.zenghm.spring.cloud.extend.web.config;
 
 import com.zenghm.spring.cloud.extend.web.converter.DateConverter;
 import com.zenghm.spring.cloud.extend.web.filter.AuthFilter;
-import com.zenghm.spring.cloud.extend.web.handler.CustomHandlerMethodArgumentResolver;
+import com.zenghm.spring.cloud.extend.web.handler.CustomDtoListHandlerMethodArgumentResolver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -54,6 +54,6 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         super.addArgumentResolvers(argumentResolvers);
         // 添加自定义参数处理器
         logger.info("添加自定义参数解析器");
-        argumentResolvers.add(new CustomHandlerMethodArgumentResolver());
+        argumentResolvers.add(new CustomDtoListHandlerMethodArgumentResolver());
     }
 }
